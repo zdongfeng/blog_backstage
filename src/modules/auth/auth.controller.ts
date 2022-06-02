@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-14 17:29:46
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-01 15:20:47
+ * @LastEditTime: 2022-06-01 09:49:25
  */
 
 /**
@@ -30,36 +30,17 @@ import {
   HttpCode,
   Redirect,
 } from '@nestjs/common';
-import { HelloService } from './hello.service';
+import { AuthService } from './auth.service';
 
 @Controller('/hello')
-export class HelloController {
-  constructor(private readonly helloService: HelloService) {}
+export class AuthController {
+  constructor(private readonly authService: AuthService) {}
 
   // 查询
   @Get()
-  // @Redirect('https://docs.nestjs.com', 302)
+  @Redirect('https://docs.nestjs.com', 302)
   fetch(@Query() { id }, @Headers('token') token): string {
     console.log(token);
-    return this.helloService.fetch(id);
-  }
-
-  // 创建
-  @Post()
-  @HttpCode(204)
-  save(@Body() { message }): string {
-    return this.helloService.save(message);
-  }
-
-  // 更新
-  @Patch(':id')
-  update(@Param() { id }, @Body() { message }): string {
-    return this.helloService.update(id, message);
-  }
-
-  // 删除
-  @Delete()
-  remove(@Query() { id }): string {
-    return this.helloService.remove(id);
+    return this.authService.fetch(id);
   }
 }

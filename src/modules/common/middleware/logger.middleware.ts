@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-15 13:49:44
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-04-15 14:05:46
+ * @LastEditTime: 2022-04-19 11:36:59
  */
 import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response } from 'express';
@@ -16,3 +16,5 @@ export class LoggerMiddleWare implements NestMiddleware {
     next();
   }
 }
+
+// implements 实现
