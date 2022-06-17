@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-14 10:02:26
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-01 23:28:21
+ * @LastEditTime: 2022-06-02 09:46:48
  */
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
@@ -27,7 +27,6 @@ async function bootstrap() {
    * 使用log4js  日志框架
    */
   app.useLogger(app.get(Log4jsLogger));
-  // logger.log('hello')
   // 设置全局路由前缀
   // app.setGlobalPrefix();
   // 监听端口
