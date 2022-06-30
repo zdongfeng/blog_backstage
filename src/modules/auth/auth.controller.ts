@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-14 17:29:46
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-01 09:49:25
+ * @LastEditTime: 2022-06-17 16:46:36
  */
 
 /**
@@ -18,29 +18,17 @@
  * @Headers : 获取请求q携带header值
  */
 import {
-  Controller,
-  Get,
-  Post,
-  Patch,
-  Query,
-  Delete,
   Body,
-  Param,
-  Headers,
-  HttpCode,
-  Redirect,
+  Controller, Post
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 
-@Controller('/hello')
+@Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService) { }
 
-  // 查询
-  @Get()
-  @Redirect('https://docs.nestjs.com', 302)
-  fetch(@Query() { id }, @Headers('token') token): string {
-    console.log(token);
-    return this.authService.fetch(id);
+  @Post('login')
+  login(@Body() params){
+    return this.authService.login(params)
   }
 }

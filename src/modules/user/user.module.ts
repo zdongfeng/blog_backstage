@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:56:44
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-09 10:45:04
+ * @LastEditTime: 2022-06-17 15:30:56
  */
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';

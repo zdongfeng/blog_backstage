@@ -1,0 +1,10 @@
+/*
+ * @Descripttion: 保留jwt用到的常量
+ * @Author: zhaodongfeng
+ * @Date: 2022-06-17 16:56:23
+ * @LastEditors: zhaodongfeng
+ * @LastEditTime: 2022-06-26 20:15:45
+ */
+export const JWT_CONSTANT = {
+    secret: 'wulinlin'
+}

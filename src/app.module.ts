@@ -3,13 +3,14 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-14 10:02:26
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-01 23:21:11
+ * @LastEditTime: 2022-06-17 16:19:15
  */
 import { join, resolve } from 'path';
 import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { LoggerMiddleWare } from './modules/common/middleware/logger.middleware';
 import { HelloModule } from './modules/hello/hello.module';
 import { UsersModule } from './modules/user/user.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 import { ConfigModule, ConfigService } from '@nestjs/config';
 // import { ConfigModule, ConfigService } from 'nestjs-config';
@@ -52,6 +53,7 @@ import { Log4jsModule } from '@nestx-log4js/core';
     // 模块
     HelloModule,
     UsersModule,
+    AuthModule,
   ],
 })
 export class AppModule {

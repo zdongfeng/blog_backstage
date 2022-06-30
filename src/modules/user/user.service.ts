@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:56:55
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-17 11:17:12
+ * @LastEditTime: 2022-06-28 10:57:17
  */
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { Repository } from 'typeorm';
@@ -31,7 +31,6 @@ export class UsersService {
   }
 
   async findAll(): Promise<UsersEntity[]> {
-    console.log(await this.usersRepository.find())
     return await this.usersRepository.find();
   }
 
@@ -49,7 +48,6 @@ export class UsersService {
     }
     const [err, res] = await to(this.usersRepository.save(user))
     if (err) {
-      console.log(err)
       return {
         code: 100,
         msg: '用户注册失败，请联系相关负责人。错误详情： ' + err
