@@ -3,13 +3,14 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-14 10:02:26
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-02 09:46:48
+ * @LastEditTime: 2022-07-03 17:32:29
  */
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { Log4jsLogger } from '@nestx-log4js/core';
 import { AppModule } from './app.module';
-
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { join } from 'path';
 const listenPort = 4321
 const logger = new Logger('main.ts')
 
@@ -21,8 +22,11 @@ async function bootstrap() {
    * 第一个： 传入的moudle对象
    * 第二个:
    */
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
+  app.useStaticAssets(join(__dirname, '..', 'public/picture'),{
+      prefix: '/static/',   //设置虚拟路径
+  }); 
   /**
    * 使用log4js  日志框架
    */

@@ -21,6 +21,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 // log4 日志模块
 import { Log4jsModule } from '@nestx-log4js/core';
+import { PictureModule } from './modules/picture/picture.module';
 
 @Module({
   imports: [
@@ -54,6 +55,7 @@ import { Log4jsModule } from '@nestx-log4js/core';
     HelloModule,
     UsersModule,
     AuthModule,
+    PictureModule,
   ],
 })
 export class AppModule {
