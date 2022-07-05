@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:56:55
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-28 10:57:17
+ * @LastEditTime: 2022-07-04 17:50:53
  */
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { Repository } from 'typeorm';
@@ -54,7 +54,7 @@ export class UsersService {
       }
     }else{
       return {
-        code: 200,
+        code: 0,
         data: '注册成功'
       }
     }
