@@ -23,6 +23,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Log4jsModule } from '@nestx-log4js/core';
 import { PictureModule } from './modules/picture/picture.module';
 import { ArticleModule } from './modules/article/article.module';
+import { DraftsModule } from './modules/drafts/drafts.module';
 
 @Module({
   imports: [
@@ -58,6 +59,7 @@ import { ArticleModule } from './modules/article/article.module';
     AuthModule,
     PictureModule,
     ArticleModule,
+    DraftsModule,
   ],
 })
 export class AppModule {
