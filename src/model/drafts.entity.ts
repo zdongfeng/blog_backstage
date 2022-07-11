@@ -3,17 +3,18 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:58:17
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-04 17:56:25
+ * @LastEditTime: 2022-07-11 15:07:44
  */
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { UsersEntity } from './user.entity';
 /**
  * @descripttion: 
  * @author: zhaodongfeng
  * @Date: 2022-06-02 17:36:25
  * @@param: {}
  */
-@Entity({ name: 'article' })
-export class ActicleEntity {
+@Entity({ name: 'drafts' })
+export class DraftsEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -38,4 +39,8 @@ export class ActicleEntity {
     default: () => 0
   })
   updateTime?: string;
+
+  //  对应用户id
+  @ManyToOne(() => UsersEntity, (user) => user.drafts)
+  user: UsersEntity
 }

@@ -3,13 +3,13 @@
  * @Author: zhaodongfeng
  * @Date: 2022-07-06 15:41:35
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-06 15:50:59
+ * @LastEditTime: 2022-07-07 16:57:23
  */
 import { Injectable } from '@nestjs/common';
 import to from 'src/utils/await-to-js';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DraftsEntity } from './drafts.entity';
+import { DraftsEntity } from '../../model/drafts.entity';
 
 
 @Injectable()

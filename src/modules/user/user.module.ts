@@ -3,13 +3,13 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:56:44
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-17 15:30:56
+ * @LastEditTime: 2022-07-07 16:57:25
  */
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersController } from './user.controller';
 import { UsersService } from './user.service';
-import { UsersEntity } from './user.entity';
+import { UsersEntity } from '../../model/user.entity';
 import { HashPasswordMiddleware } from 'src/middlewares/hash-password.middleware';
 
 @Module({

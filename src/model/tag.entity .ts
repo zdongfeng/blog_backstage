@@ -1,41 +1,35 @@
 /*
- * @Descripttion: 
+ * @Descripttion: 文章标签
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:58:17
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-06 15:44:49
+ * @LastEditTime: 2022-07-11 15:21:06
  */
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+// import { ActicleEntity } from './article.entity';
 /**
  * @descripttion: 
  * @author: zhaodongfeng
  * @Date: 2022-06-02 17:36:25
  * @@param: {}
  */
-@Entity({ name: 'drafts' })
-export class DraftsEntity {
+@Entity({ name: 'tag' }) 
+export class TagEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  // 标题
+  // 名称
   @Column('varchar')
-  title: string;
+  tag_name: string;
 
   // 描述
   @Column('varchar')
-  description: string;
-
-  // 内容
-  @Column('text')
-  content: string;
+  tag_description: string;
 
   // 创建时间
   @Column("varchar")
-  createTime: string;
+  tag_createTime: string;
 
-  // 更新时间
-  @Column('varchar',{
-    default: () => 0
-  })
-  updateTime?: string;
+  // @OneToMany(() => ActicleEntity, (drafts) => drafts.user)
+  // drafts: DraftsEntity[]
 }

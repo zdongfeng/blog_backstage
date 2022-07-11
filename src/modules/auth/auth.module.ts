@@ -3,14 +3,14 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-14 17:29:17
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-28 14:16:48
+ * @LastEditTime: 2022-07-07 16:57:27
  */
 import { Module } from '@nestjs/common';
 import { UsersService } from '../user/user.service';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersEntity } from '../user/user.entity'
+import { UsersEntity } from '../../model/user.entity'
 
 import { JwtModule } from '@nestjs/jwt';
 import { JWT_CONSTANT } from './jwt.constant';

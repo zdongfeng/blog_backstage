@@ -3,13 +3,13 @@
  * @Author: zhaodongfeng
  * @Date: 2022-07-04 16:05:01
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-06 15:49:06
+ * @LastEditTime: 2022-07-07 16:56:39
  */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import to from 'src/utils/await-to-js';
 import { Repository } from 'typeorm';
-import { ActicleEntity } from './article.entity';
+import { ActicleEntity } from '../../model/article.entity';
 
 @Injectable()
 export class ArticleService {

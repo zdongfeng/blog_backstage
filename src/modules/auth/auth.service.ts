@@ -3,13 +3,13 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-14 17:28:59
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-28 14:01:11
+ * @LastEditTime: 2022-07-07 16:57:29
  */
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import to from 'src/utils/await-to-js';
 import { encript } from 'src/utils/enciptions';
-import { UsersEntity } from '../user/user.entity';
+import { UsersEntity } from '../../model/user.entity';
 import { UsersService } from '../user/user.service';
 
 @Injectable()
