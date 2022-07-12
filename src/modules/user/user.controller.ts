@@ -1,9 +1,9 @@
 /*
- * @Descripttion: 
+ * @Descripttion:
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:57:07
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-07 15:32:10
+ * @LastEditTime: 2022-07-12 16:27:56
  */
 import { Controller, Get, Post, Body, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
@@ -14,9 +14,8 @@ import { UsersService } from './user.service';
 
 // 使用方式1： 整个controllers使用此守卫
 // @UseGuards(AuthGuard('jwt'))
-
 export class UsersController {
-  constructor(private readonly usersService: UsersService) { }
+  constructor(private readonly usersService: UsersService) {}
 
   @Get('findAll')
   // @UseGuards(AuthGuard('jwt'))
@@ -31,7 +30,7 @@ export class UsersController {
 
   @Get('role')
   @Role('admin')
-  getRole(){
-    return 'get Roles'
+  getRole() {
+    return 'get Roles';
   }
 }

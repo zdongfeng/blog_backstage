@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-14 17:29:46
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-26 20:01:30
+ * @LastEditTime: 2022-07-12 16:27:32
  */
 
 /**
@@ -44,12 +44,12 @@ export class HelloController {
     return this.helloService.fetch(id);
   }
 
-    // 查询
-    @Get('getGoods')
-    // @Redirect('https://docs.nestjs.com', 302)
-    getGoods(@Query() {id} ): object{
-      return this.helloService.getGoods(id);
-    }
+  // 查询
+  @Get('getGoods')
+  // @Redirect('https://docs.nestjs.com', 302)
+  getGoods(@Query() { id }): object {
+    return this.helloService.getGoods(id);
+  }
 
   // 创建
   @Post()

@@ -1,9 +1,9 @@
 /*
- * @Descripttion: 
+ * @Descripttion:
  * @Author: zhaodongfeng
  * @Date: 2022-07-11 16:17:48
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-12 10:59:21
+ * @LastEditTime: 2022-07-12 16:27:50
  */
 import { Module } from '@nestjs/common';
 import { TagService } from './tag.service';
@@ -14,6 +14,6 @@ import { TagEntity } from 'src/model/tag.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([TagEntity])],
   providers: [TagService],
-  controllers: [TagController]
+  controllers: [TagController],
 })
 export class TagModule {}

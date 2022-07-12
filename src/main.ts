@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-14 10:02:26
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-03 17:32:29
+ * @LastEditTime: 2022-07-12 16:28:12
  */
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
@@ -11,8 +11,8 @@ import { Log4jsLogger } from '@nestx-log4js/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
-const listenPort = 4321
-const logger = new Logger('main.ts')
+const listenPort = 4321;
+const logger = new Logger('main.ts');
 
 async function bootstrap() {
   // 使用 Nest 的工厂函数创建AppModule
@@ -24,9 +24,9 @@ async function bootstrap() {
    */
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  app.useStaticAssets(join(__dirname, '..', 'public/picture'),{
-      prefix: '/static/',   //设置虚拟路径
-  }); 
+  app.useStaticAssets(join(__dirname, '..', 'public/picture'), {
+    prefix: '/static/', //设置虚拟路径
+  });
   /**
    * 使用log4js  日志框架
    */
@@ -37,5 +37,5 @@ async function bootstrap() {
   await app.listen(listenPort);
 }
 bootstrap().then(() => {
-  logger.log(`服务启动 -> htttp://localhost:${listenPort}`)
+  logger.log(`服务启动 -> htttp://localhost:${listenPort}`);
 });

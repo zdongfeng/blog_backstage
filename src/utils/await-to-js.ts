@@ -1,9 +1,9 @@
 /*
- * @Descripttion: 
+ * @Descripttion:
  * @Author: zhaodongfeng
  * @Date: 2022-06-17 09:54:59
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-17 09:55:48
+ * @LastEditTime: 2022-07-12 16:28:09
  */
 /**
  * @param { Promise } promise
@@ -12,7 +12,7 @@
  */
 export function to<T, U = Error>(
   promise: Promise<T>,
-  errorExt?: object
+  errorExt?: object,
 ): Promise<[U, undefined] | [null, T]> {
   return promise
     .then<[null, T]>((data: T) => [null, data])

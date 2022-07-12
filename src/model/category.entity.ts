@@ -1,9 +1,9 @@
 /*
- * @Descripttion: 
+ * @Descripttion:
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:58:17
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-11 15:21:19
+ * @LastEditTime: 2022-07-12 16:26:30
  */
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { ArticleEntity } from './article.entity';
@@ -27,9 +27,9 @@ export class CategoryEntity {
   category_description: string;
 
   // 创建时间
-  @Column("varchar")
+  @Column('varchar')
   createTime: string;
 
   @OneToMany(() => ArticleEntity, (article) => article.category)
-  article: ArticleEntity[]
+  article: ArticleEntity[];
 }

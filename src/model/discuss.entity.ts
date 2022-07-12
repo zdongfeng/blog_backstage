@@ -1,9 +1,9 @@
 /*
- * @Descripttion: 
+ * @Descripttion:
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:58:17
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-11 15:21:14
+ * @LastEditTime: 2022-07-12 16:26:33
  */
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 /**
@@ -18,7 +18,7 @@ export class DiscussEntity {
   id: number;
 
   // 评论时间
-  @Column("varchar")
+  @Column('varchar')
   createTime: string;
 
   // 评论内容
@@ -32,5 +32,4 @@ export class DiscussEntity {
   // 评论用户
   @Column('varchar')
   discuss_user: string;
-
 }

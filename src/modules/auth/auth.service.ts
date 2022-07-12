@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-14 17:28:59
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-07 16:57:29
+ * @LastEditTime: 2022-07-12 16:27:08
  */
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
@@ -16,40 +16,40 @@ import { UsersService } from '../user/user.service';
 export class AuthService {
   constructor(
     private readonly userService: UsersService,
-    private readonly jwtService: JwtService
-  ) { }
+    private readonly jwtService: JwtService,
+  ) {}
 
   private async validateUser(user) {
-    const { username, password } = user
-    const [err, data] = await to(this.userService.findOneByName(username))
+    const { username, password } = user;
+    const [err, data] = await to(this.userService.findOneByName(username));
     if (err) {
       return {
         code: 100,
-        msg: '用户登录失败，请联系相关负责人。错误详情： ' + err
-      }
+        msg: '用户登录失败，请联系相关负责人。错误详情： ' + err,
+      };
     } else {
       if (data !== null && data) {
-        const pass = encript(password, data.salt)
+        const pass = encript(password, data.salt);
         if (pass === data.password) {
           return {
             code: 0,
             msg: '登录成功',
             data: {
               userId: data.id,
-              username: data.username
-            }
-          }
+              username: data.username,
+            },
+          };
         } else {
           return {
             code: 100,
-            msg: '用户名密码错误'
-          }
+            msg: '用户名密码错误',
+          };
         }
       } else {
         return {
           code: 100,
-          msg: '用户尚未注册'
-        }
+          msg: '用户尚未注册',
+        };
       }
     }
   }
@@ -59,35 +59,35 @@ export class AuthService {
    * @params {User} user
    */
   private async createToken(user: UsersEntity) {
-    return await this.jwtService.sign(user)
+    return await this.jwtService.sign(user);
   }
 
   /**
- * @desc: 用户登录方法
- * @param {*} user
- */
+   * @desc: 用户登录方法
+   * @param {*} user
+   */
   async login(user) {
-    const [err, data] = await to(this.validateUser(user))
+    const [err, data] = await to(this.validateUser(user));
     if (err) {
       return {
         code: 100,
-        msg: '用户登录失败，请联系相关负责人。错误详情： ' + err
-      }
+        msg: '用户登录失败，请联系相关负责人。错误详情： ' + err,
+      };
     } else {
       if (data.code !== 0) {
-        return data
+        return data;
       }
-      const userId = data.data.userId
-      const username = data.data.username
-      const token = await this.createToken(user)
+      const userId = data.data.userId;
+      const username = data.data.username;
+      const token = await this.createToken(user);
       return {
         code: 0,
         data: {
-          token: 'Bearer ' + token ,
+          token: 'Bearer ' + token,
           userId,
-          username
-        }
-      }
+          username,
+        },
+      };
     }
   }
 }

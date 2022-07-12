@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-14 10:02:26
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-12 11:02:32
+ * @LastEditTime: 2022-07-12 16:28:05
  */
 import { join, resolve } from 'path';
 import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
@@ -32,9 +32,7 @@ import { TagModule } from './modules/tag/tag.module';
     // // 将env文件注册
     ConfigModule.forRoot({
       isGlobal: true, //设为全局
-      envFilePath: [
-        envConfig.path,
-      ],
+      envFilePath: [envConfig.path],
     }),
     // 配置数据库连接
     TypeOrmModule.forRootAsync({
@@ -63,7 +61,7 @@ import { TagModule } from './modules/tag/tag.module';
     ArticleModule,
     DraftsModule,
     CategoryModule,
-    TagModule
+    TagModule,
   ],
 })
 export class AppModule {

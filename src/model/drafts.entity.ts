@@ -1,9 +1,9 @@
 /*
- * @Descripttion: 
+ * @Descripttion:
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:58:17
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-11 16:56:30
+ * @LastEditTime: 2022-07-12 16:26:35
  */
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 // import { UsersEntity } from './user.entity';
@@ -31,12 +31,12 @@ export class DraftsEntity {
   content: string;
 
   // 创建时间
-  @Column("varchar")
+  @Column('varchar')
   createTime: string;
 
   // 更新时间
-  @Column('varchar',{
-    default: () => 0
+  @Column('varchar', {
+    default: () => 0,
   })
   updateTime?: string;
 

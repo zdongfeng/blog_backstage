@@ -1,9 +1,9 @@
 /*
- * @Descripttion: 
+ * @Descripttion:
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:56:44
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-07 16:57:25
+ * @LastEditTime: 2022-07-12 16:27:57
  */
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -19,8 +19,6 @@ import { HashPasswordMiddleware } from 'src/middlewares/hash-password.middleware
 })
 export class UsersModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-      consumer
-        .apply(HashPasswordMiddleware)
-        .forRoutes('users/regist')
+    consumer.apply(HashPasswordMiddleware).forRoutes('users/regist');
   }
 }

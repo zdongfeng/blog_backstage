@@ -1,9 +1,9 @@
 /*
- * @Descripttion: 
+ * @Descripttion:
  * @Author: zhaodongfeng
  * @Date: 2022-07-04 16:04:55
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-12 15:49:18
+ * @LastEditTime: 2022-07-12 16:10:10
  */
 import { Module } from '@nestjs/common';
 import { ArticleService } from './article.service';
@@ -15,6 +15,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [TypeOrmModule.forFeature([ArticleEntity, TagEntity])],
   providers: [ArticleService],
-  controllers: [ArticleController]
+  controllers: [ArticleController],
 })
-export class ArticleModule { }
+export class ArticleModule {}
