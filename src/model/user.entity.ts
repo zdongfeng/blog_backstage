@@ -3,10 +3,11 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:58:17
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-07 16:56:31
+ * @LastEditTime: 2022-07-12 11:06:13
  */
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { DraftsEntity } from './drafts.entity';
+import { ArticleEntity } from './article.entity';
+// import { DraftsEntity } from './drafts.entity';
 /**
  * @descripttion: 
  * @author: zhaodongfeng
@@ -18,35 +19,48 @@ export class UsersEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  // 用户名
   @Column({ length: 20 })
   username: string;
 
-  @Column('varchar')
+  // 账号密码
+  @Column('varchar', {
+    select: false,
+  })
   password: string;
 
-  @Column('varchar')
+  // 盐
+  @Column('varchar', {
+    select: false,
+  })
   salt?: string;
 
+  // 手机号
   @Column('double', {
     default: () => 0
   })
   photo?: number;
 
+  // 账号状态
   @Column({
-    default: () => 'true'
+    type: 'tinyint',
+    default: () => '1'
   })
-  status: boolean;
+  status: number;
 
+  // 阅读量
   @Column({
     default: () => 0
   })
-  read_count: boolean;
+  read_count: number;
 
+  // 点赞量
   @Column({
     default: () => 0
   })
-  like_count: boolean;
-  
-  @OneToMany(() => DraftsEntity, (drafts) => drafts.user)
-  drafts: DraftsEntity[]
+  like_count: number;
+
+  // 关联文章
+  @OneToMany(() => ArticleEntity, (article) => article.user)
+  article: ArticleEntity[]
 }

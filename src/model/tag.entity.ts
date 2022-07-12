@@ -3,10 +3,10 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:58:17
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-11 15:21:06
+ * @LastEditTime: 2022-07-12 15:13:26
  */
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-// import { ActicleEntity } from './article.entity';
+import { Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { ArticleEntity } from './article.entity';
 /**
  * @descripttion: 
  * @author: zhaodongfeng
@@ -28,8 +28,9 @@ export class TagEntity {
 
   // 创建时间
   @Column("varchar")
-  tag_createTime: string;
+  createTime: string;
 
-  // @OneToMany(() => ActicleEntity, (drafts) => drafts.user)
-  // drafts: DraftsEntity[]
+  // 对应文章表
+  @ManyToMany(() => ArticleEntity, (article) => article.tag)
+  article: ArticleEntity[]
 }

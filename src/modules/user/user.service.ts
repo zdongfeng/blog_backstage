@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:56:55
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-07 16:57:51
+ * @LastEditTime: 2022-07-12 10:04:50
  */
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { Repository } from 'typeorm';
@@ -31,7 +31,7 @@ export class UsersService {
   }
 
   async findAll(): Promise<UsersEntity[]> {
-    return await this.usersRepository.find({relations: ['drafts']});
+    return await this.usersRepository.find({relations: ['article']});
   }
 
   async registUser(user) {

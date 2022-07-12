@@ -6,7 +6,7 @@
  * @LastEditTime: 2022-07-11 15:21:19
  */
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { ActicleEntity } from './article.entity';
+import { ArticleEntity } from './article.entity';
 /**
  * @descripttion: 文章分类
  * @author: zhaodongfeng
@@ -30,6 +30,6 @@ export class CategoryEntity {
   @Column("varchar")
   createTime: string;
 
-  @OneToMany(() => ActicleEntity, (article) => article.category)
-  article: ActicleEntity[]
+  @OneToMany(() => ArticleEntity, (article) => article.category)
+  article: ArticleEntity[]
 }

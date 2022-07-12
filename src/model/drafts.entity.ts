@@ -3,12 +3,12 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:58:17
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-11 15:07:44
+ * @LastEditTime: 2022-07-11 16:56:30
  */
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { UsersEntity } from './user.entity';
+// import { UsersEntity } from './user.entity';
 /**
- * @descripttion: 
+ * @descripttion: 草稿箱
  * @author: zhaodongfeng
  * @Date: 2022-06-02 17:36:25
  * @@param: {}
@@ -41,6 +41,6 @@ export class DraftsEntity {
   updateTime?: string;
 
   //  对应用户id
-  @ManyToOne(() => UsersEntity, (user) => user.drafts)
-  user: UsersEntity
+  // @ManyToOne(() => UsersEntity, (user) => user.drafts)
+  // user: UsersEntity
 }

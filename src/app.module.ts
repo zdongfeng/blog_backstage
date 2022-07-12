@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-14 10:02:26
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-17 16:19:15
+ * @LastEditTime: 2022-07-12 11:02:32
  */
 import { join, resolve } from 'path';
 import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
@@ -24,6 +24,8 @@ import { Log4jsModule } from '@nestx-log4js/core';
 import { PictureModule } from './modules/picture/picture.module';
 import { ArticleModule } from './modules/article/article.module';
 import { DraftsModule } from './modules/drafts/drafts.module';
+import { CategoryModule } from './modules/category/category.module';
+import { TagModule } from './modules/tag/tag.module';
 
 @Module({
   imports: [
@@ -45,7 +47,7 @@ import { DraftsModule } from './modules/drafts/drafts.module';
         port: configService.get<number>('DB_PORT', 3306), // 端口号
         username: configService.get('DB_USER', 'root'), // 用户名
         password: configService.get('DB_PASSWORD', 'Zhaodongfang123...'), // 密码
-        database: configService.get('DB_DATABASE', 'dbtest'), //数据库名
+        database: configService.get('DB_DATABASE', 'blog'), //数据库名
         timezone: '+08:00', //服务器上配置的时区
         synchronize: true, //根据实体自动创建数据库表， 生产环境建议关闭
         entities: ['dist/**/*.entity{ .ts,.js}'], // 数据表实体
@@ -60,6 +62,8 @@ import { DraftsModule } from './modules/drafts/drafts.module';
     PictureModule,
     ArticleModule,
     DraftsModule,
+    CategoryModule,
+    TagModule
   ],
 })
 export class AppModule {

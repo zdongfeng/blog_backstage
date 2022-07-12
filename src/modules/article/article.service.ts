@@ -3,23 +3,27 @@
  * @Author: zhaodongfeng
  * @Date: 2022-07-04 16:05:01
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-07 16:56:39
+ * @LastEditTime: 2022-07-12 15:52:04
  */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import to from 'src/utils/await-to-js';
-import { Repository } from 'typeorm';
-import { ActicleEntity } from '../../model/article.entity';
+import { In, Repository } from 'typeorm';
+import { TagEntity } from 'src/model/tag.entity';
+import { ArticleEntity } from 'src/model/article.entity';
 
 @Injectable()
 export class ArticleService {
   constructor(
-    @InjectRepository(ActicleEntity)
-    private readonly acticleRepository: Repository<ActicleEntity>
+    @InjectRepository(ArticleEntity)
+    private readonly articleRepository: Repository<ArticleEntity>,
+    @InjectRepository(TagEntity)
+    private readonly tagRepository: Repository<TagEntity>
   ) { }
 
   public async createActicle(info) {
-    const [err, res] = await to(this.acticleRepository.save(info))
+    info.tag = await this.tagRepository.findBy({id: In(info.tag)})
+    const [err, res] = await to(this.articleRepository.save(info))
     if (err) {
       return {
         code: 100,
@@ -35,7 +39,7 @@ export class ArticleService {
 
   public async findAll() {
     return {
-      data: await this.acticleRepository.find(),
+      data: await this.articleRepository.find({relations: ['tag']}),
       code: 0
     }
   }

@@ -3,11 +3,11 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-01 14:58:17
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-11 15:21:25
+ * @LastEditTime: 2022-07-12 14:42:56
  */
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { CategoryEntity } from './category.entity';
-// import { TagEntity } from './tag.entity ';
+import { TagEntity } from './tag.entity';
 import { UsersEntity } from './user.entity';
 /**
  * @descripttion: 
@@ -16,21 +16,21 @@ import { UsersEntity } from './user.entity';
  * @@param: {}
  */
 @Entity({ name: 'article' })
-export class ActicleEntity {
+export class ArticleEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   // 标题
   @Column('varchar')
-  article_title: string;
+  title: string;
 
   // 描述
   @Column('varchar')
-  article_description: string;
+  description: string;
 
   // 内容
   @Column('text')
-  article_content: string;
+  content: string;
 
   // 创建时间
   @Column("varchar")
@@ -43,22 +43,35 @@ export class ActicleEntity {
   updateTime?: string;
 
   // 浏览量
-  @Column('double')
+  @Column('double', {
+    default: () => 0
+  })
   read_count: number;
 
   // 点赞量
-  @Column('double')
+  @Column('double', {
+    default: () => 0
+  })
   like_count: number;
 
   // 评论量
-  @Column('double')
+  @Column('double', {
+    default: () => 0
+  })
   comment_count: number
 
   //  对应用户id
-  @ManyToOne(() => UsersEntity, (user) => user.drafts)
+  @ManyToOne(() => UsersEntity, (user) => user.article)
   user: UsersEntity
 
   //  对应分类id
   @ManyToOne(() => CategoryEntity, (category) => category.article)
   category: CategoryEntity
+
+  // 对应标签
+  @ManyToMany(() => TagEntity, (tag) => tag.article, {
+    cascade: true,
+  })
+  @JoinTable()
+  tag: TagEntity[]
 }
