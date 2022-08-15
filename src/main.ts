@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-04-14 10:02:26
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-08-15 11:55:35
+ * @LastEditTime: 2022-08-15 12:00:27
  */
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
@@ -36,7 +36,11 @@ async function bootstrap() {
   // 监听端口
   await app.listen(listenPort);
 }
+<<<<<<< HEAD
 console.log('进行代码分支测试');
+=======
+console.log('我是主分支代码');
+>>>>>>> master
 bootstrap().then(() => {
   logger.log(`服务启动 -> htttp://localhost:${listenPort}`);
 });
