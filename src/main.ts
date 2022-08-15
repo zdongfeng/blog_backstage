@@ -36,11 +36,7 @@ async function bootstrap() {
   // 监听端口
   await app.listen(listenPort);
 }
-<<<<<<< HEAD
 console.log('进行代码分支测试');
-=======
-console.log('我是主分支代码');
->>>>>>> master
 bootstrap().then(() => {
   logger.log(`服务启动 -> htttp://localhost:${listenPort}`);
 });
